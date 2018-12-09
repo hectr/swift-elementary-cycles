@@ -18,7 +18,7 @@ public struct ElementaryCycles {
     public static func find<Node: Hashable>(graph: [Node: [Node]], sort: ((Node, Node) -> Bool)? = nil) -> [[Node]] {
         let nodes = AdjacencyMatrix.getNodes(graph: graph, sort: sort)
         let adjacencyMatrix = try! AdjacencyMatrix.getAdjacencyMatrix(nodes: nodes, adjacencyDictionary: graph)
-        let elementaryCycles = ElementaryCyclesSearch.getElementaryCycles(adjacencyMatrix: adjacencyMatrix, graphNodes: Vector(array: nodes))
+        let elementaryCycles = ElementaryCyclesSearch.getElementaryCycles(adjacencyMatrix: adjacencyMatrix, graphNodes: nodes)
         return ElementaryCyclesSearch.toArray(elementaryCycles: elementaryCycles)
     }
 }

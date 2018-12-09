@@ -39,16 +39,16 @@ extension Matrix where Element == Int {
         let list = Matrix<Int>(adjacencyMatrix.reservedLength)
         
         for i in 0 ..< adjacencyMatrix.reservedLength {
-            let v = Vector<Int>()
+            var v = Array<Int>()
             for j in 0 ..< adjacencyMatrix[i].reservedLength {
                 if let isAdjacent = adjacencyMatrix[i]?[j], isAdjacent {
-                    v.add(j)
+                    v.append(j)
                 }
             }
-            
-            list[i] = Vector(v.size)
-            for j in 0 ..< v.size {
-                let integer = v.get(j)
+
+            list[i] = Vector(v.count)
+            for j in 0 ..< v.count {
+                let integer = v[j]
                 list[i][j] = integer
             }
         }

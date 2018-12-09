@@ -26,12 +26,12 @@ import ElementaryCyclesSearch
 
 typealias Node = String
 
-private func printCycles(_ cycles: Vector<Vector<Node>>) {
-    for i in 0 ..< cycles.size {
-        let cycle = cycles.get(i)
-        for j in 0 ..< cycle.size {
-            let node = cycle.get(j)
-            if j < (cycle.size - 1) {
+private func printCycles(_ cycles: Array<Array<Node>>) {
+    for i in 0 ..< cycles.count {
+        let cycle = cycles[i]
+        for j in 0 ..< cycle.count {
+            let node = cycle[j]
+            if j < (cycle.count - 1) {
                 print(node + " -> ", terminator: "")
             } else {
                 print(node, terminator: "")
@@ -41,10 +41,10 @@ private func printCycles(_ cycles: Vector<Vector<Node>>) {
     }
 }
 
-let nodes: Vector<Node> = {
-    let vector = Vector<Node>(10)
+let nodes: Array<Node> = {
+    var vector = Array<Node>()
     for i in 0 ..< 10 {
-        vector[i] = "Node \(i)"
+        vector.append("Node \(i)")
     }
     return vector
 }()

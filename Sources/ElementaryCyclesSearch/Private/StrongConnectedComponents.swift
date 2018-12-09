@@ -77,7 +77,7 @@ class StrongConnectedComponents {
     private var visited: Vector<Bool>!
     
     /** Helpattribute for finding scc's */
-    private var stack: Vector<Int>!
+    private var stack: Array<Int>!
     
     /** Helpattribute for finding scc's */
     private var lowlink: Vector<Int>!
@@ -89,7 +89,7 @@ class StrongConnectedComponents {
     private var strongConnectedComponentsCounter = 0;
     
     /** Helpattribute for finding scc's */
-    private var currentStrongConnectedComponents: Vector<Vector<Int>>!
+    private var currentStrongConnectedComponents: Array<Array<Int>>!
     
     /**
      * Constructor.
@@ -116,9 +116,9 @@ class StrongConnectedComponents {
         lowlink = Vector<Int>(self.adjacencyListOriginal.reservedLength)
         number = Vector<Int>(self.adjacencyListOriginal.reservedLength)
         visited = Vector<Bool>(self.adjacencyListOriginal.reservedLength)
-        stack = Vector<Int>()
-        currentStrongConnectedComponents = Vector<Vector<Int>>()
-        
+        stack = Array<Int>()
+        currentStrongConnectedComponents = Array<Array<Int>>()
+
         makeAdjacencyListSubgraph(node: node);
         
         for i in node ..< self.adjacencyListOriginal.reservedLength {
@@ -153,17 +153,17 @@ class StrongConnectedComponents {
         adjacencyList = AdjacencyList(adjacencyListOriginal.reservedLength, 0)
         
         for i in node ..< adjacencyList.reservedLength {
-            let successors = Vector<Int>()
+            var successors = Array<Int>()
             for j in 0 ..< self.adjacencyListOriginal[i].reservedLength {
                 guard let original = adjacencyListOriginal[i]?[j] else { continue }
                 if original >= node {
-                    successors.add(original)
+                    successors.append(original)
                 }
             }
-            if successors.size > 0 {
-                adjacencyList[i] = Vector(successors.size)
-                for j in 0 ..< successors.size {
-                    let succ = successors.get(j)
+            if successors.count > 0 {
+                adjacencyList[i] = Vector(successors.count)
+                for j in 0 ..< successors.count {
+                    let succ = successors[j]
                     adjacencyList[i][j] = succ
                 }
             }
@@ -176,14 +176,14 @@ class StrongConnectedComponents {
      *
      * @return Vector::Integer of the strongConnectedComponents containing the lowest nodenumber
      */
-    private func getLowestIdComponent() -> Vector<Int>? {
+    private func getLowestIdComponent() -> Array<Int>? {
         var min = adjacencyList.reservedLength;
-        var currScc: Vector<Int>?
+        var currScc: Array<Int>?
         
-        for i in 0 ..< currentStrongConnectedComponents.size {
-            let strongConnectedComponents = currentStrongConnectedComponents.get(i)
-            for j in 0 ..< strongConnectedComponents.size {
-                let node = strongConnectedComponents.get(j)
+        for i in 0 ..< currentStrongConnectedComponents.count {
+            let strongConnectedComponents = currentStrongConnectedComponents[i]
+            for j in 0 ..< strongConnectedComponents.count {
+                let node = strongConnectedComponents[j]
                 if node < min {
                     currScc = strongConnectedComponents
                     min = node
@@ -199,14 +199,14 @@ class StrongConnectedComponents {
      * strong connected component with least vertex in the currently viewed
      * subgraph
      */
-    private func getAdjList(nodes: Vector<Int>?) -> AdjacencyList? {
+    private func getAdjList(nodes: Array<Int>?) -> AdjacencyList? {
         guard let nodes = nodes else { return nil }
         let lowestIdAdjacencyList = AdjacencyList(adjacencyList.reservedLength)
         for i in 0 ..< lowestIdAdjacencyList.reservedLength {
             lowestIdAdjacencyList[i] = Vector<Int>()
         }
-        for i in 0 ..< nodes.size {
-            let node = nodes.get(i)
+        for i in 0 ..< nodes.count {
+            let node = nodes[i]
             guard let adjListNode = adjacencyList[node] else { continue }
             for j in 0 ..< adjListNode.reservedLength {
                 guard let succ = adjacencyList[node]?[j] else { continue }
@@ -228,8 +228,8 @@ class StrongConnectedComponents {
         strongConnectedComponentsCounter += 1
         lowlink[root] = strongConnectedComponentsCounter
         number[root] = strongConnectedComponentsCounter
-        visited[root] = true;
-        stack.add(root);
+        visited[root] = true
+        stack.append(root)
         
         for i in 0 ..< adjacencyList[root].reservedLength {
             guard let w = adjacencyList[root]?[i] else { continue }
@@ -244,19 +244,19 @@ class StrongConnectedComponents {
         }
 
         // found strongConnectedComponents
-        if (lowlink[root] == number[root]) && (stack.size > 0) {
+        if (lowlink[root] == number[root]) && (stack.count > 0) {
             var next = -1;
-            let strongConnectedComponents = Vector<Int>()
+            var strongConnectedComponents = Array<Int>()
 
             repeat {
-                next = stack.get(stack.size - 1)
-                stack.remove(at: stack.size - 1)
-                strongConnectedComponents.add(next)
+                guard let popped = stack.popLast() else { break }
+                next = popped
+                strongConnectedComponents.append(next)
             } while number[next]! > number[root]!
 
             // simple scc's with just one node will not be added
-            if strongConnectedComponents.size > 1 {
-                currentStrongConnectedComponents.add(strongConnectedComponents);
+            if strongConnectedComponents.count > 1 {
+                currentStrongConnectedComponents.append(strongConnectedComponents);
             }
         }
     }

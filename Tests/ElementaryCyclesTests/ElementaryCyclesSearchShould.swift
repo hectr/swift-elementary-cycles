@@ -7,10 +7,10 @@ final class ElementaryCyclesSearchShould: XCTestCase {
 
     private typealias Node = String
     
-    private var nodes: Vector<Node> {
-        let nodes = Vector<Node>(10)
+    private var nodes: Array<Node> {
+        var nodes = Array<Node>()
         for i in 0 ..< 10 {
-            nodes[i] = "Node \(i)"
+            nodes.append("Node \(i)")
         }
         return nodes
     }
