@@ -6,8 +6,8 @@ final class ElementaryCyclesSearchTests: XCTestCase {
 
     private typealias Node = String
     
-    private var nodes: Array<Node> {
-        var nodes = Array<Node>()
+    private var nodes: [Node] {
+        var nodes = [Node]()
         for i in 0 ..< 10 {
             nodes.append("Node \(i)")
         }
@@ -29,9 +29,9 @@ final class ElementaryCyclesSearchTests: XCTestCase {
         matrix[6][1] = true
     }
     
-    private var sut: ((AdjacencyMatrix, Array<Node>) -> Array<Array<Node>>)!
+    private var sut: ((AdjacencyMatrix, [Node]) -> [[Node]])!
     
-    private func prettify(cycles: Array<Array<Node>>) -> String {
+    private func prettify(cycles: [[Node]]) -> String {
         var description = ""
         for i in 0 ..< cycles.count {
             let cycle = cycles[i]

@@ -26,7 +26,7 @@ import ElementaryCyclesSearch
 
 typealias Node = String
 
-private func printCycles(_ cycles: Array<Array<Node>>) {
+private func printCycles(_ cycles: [[Node]]) {
     for i in 0 ..< cycles.count {
         let cycle = cycles[i]
         for j in 0 ..< cycle.count {
@@ -41,8 +41,8 @@ private func printCycles(_ cycles: Array<Array<Node>>) {
     }
 }
 
-let nodes: Array<Node> = {
-    var vector = Array<Node>()
+let nodes: [Node] = {
+    var vector = [Node]()
     for i in 0 ..< 10 {
         vector.append("Node \(i)")
     }

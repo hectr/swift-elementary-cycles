@@ -7,8 +7,8 @@ final class ElementaryCyclesSearchShould: XCTestCase {
 
     private typealias Node = String
     
-    private var nodes: Array<Node> {
-        var nodes = Array<Node>()
+    private var nodes: [Node] {
+        var nodes = [Node]()
         for i in 0 ..< 10 {
             nodes.append("Node \(i)")
         }

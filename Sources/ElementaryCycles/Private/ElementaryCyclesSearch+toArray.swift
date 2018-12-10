@@ -15,7 +15,7 @@ import Swift
 import ElementaryCyclesSearch
 
 extension ElementaryCyclesSearch {
-    static func toArray(elementaryCycles: Array<Array<Node>>) -> [[Node]] {
+    static func toArray(elementaryCycles: [[Node]]) -> [[Node]] {
         var cycles = [[Node]]()
         for vector in elementaryCycles {
             var cycle = [Node]()

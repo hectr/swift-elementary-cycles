@@ -42,13 +42,13 @@ import Swift
  */
 public class ElementaryCyclesSearch<Node> {
     /** List of cycles */
-    private var cycles: Array<Array<Node>>
+    private var cycles: [[Node]]
     
     /** Adjacency-list of graph */
     private var adjacencyList: AdjacencyList
     
     /** Graphnodes */
-    private var graphNodes: Array<Node>
+    private var graphNodes: [Node]
     
     /** Blocked nodes, used by the algorithm of Johnson */
     private var blocked: Vector<Bool>
@@ -57,7 +57,7 @@ public class ElementaryCyclesSearch<Node> {
     private var B: Matrix<Int>
     
     /** Stack for nodes, used by the algorithm of Johnson */
-    private var stack: Array<Int>
+    private var stack: [Int]
     
     /**
      * Returns List::List::Object with the Lists of nodes of all elementary
@@ -70,7 +70,7 @@ public class ElementaryCyclesSearch<Node> {
      *
      * @return List::List::Object with the Lists of the elementary cycles.
      */
-    public static func getElementaryCycles(adjacencyMatrix: AdjacencyMatrix, graphNodes: Array<Node>) -> Array<Array<Node>> {
+    public static func getElementaryCycles(adjacencyMatrix: AdjacencyMatrix, graphNodes: [Node]) -> [[Node]] {
         let ecs = ElementaryCyclesSearch(adjacencyMatrix: adjacencyMatrix, graphNodes: graphNodes)
         return ecs.getElementaryCycles()
     }
@@ -83,13 +83,13 @@ public class ElementaryCyclesSearch<Node> {
      * build sets of the elementary cycles containing the objects of the original
      * graph-representation
      */
-    private init(adjacencyMatrix: AdjacencyMatrix, graphNodes: Array<Node>) {
+    private init(adjacencyMatrix: AdjacencyMatrix, graphNodes: [Node]) {
         self.graphNodes = graphNodes;
         self.adjacencyList = AdjacencyList.getAdjacencyList(adjacencyMatrix: adjacencyMatrix)
-        cycles = Array<Array<Node>>()
+        cycles = [[Node]]()
         blocked = Vector<Bool>(adjacencyList.reservedLength)
         B = Matrix<Int>(adjacencyList.reservedLength)
-        stack = Array<Int>()
+        stack = [Int]()
     }
     
     /**
@@ -98,7 +98,7 @@ public class ElementaryCyclesSearch<Node> {
      *
      * @return List::List::Object with the Lists of the elementary cycles.
      */
-    private func getElementaryCycles() -> Array<Array<Node>> {
+    private func getElementaryCycles() -> [[Node]] {
         let sccs = StrongConnectedComponents(adjacencyList: adjacencyList)
         var s = 0
         
@@ -142,7 +142,7 @@ public class ElementaryCyclesSearch<Node> {
             let w = adjacencyList[v].get(i)
             // found cycle
             if w == s {
-                var cycle = Array<Node>()
+                var cycle = [Node]()
                 for j in 0 ..< stack.count {
                     let index = stack[j]
                     let node = graphNodes[index] // WARNING guard

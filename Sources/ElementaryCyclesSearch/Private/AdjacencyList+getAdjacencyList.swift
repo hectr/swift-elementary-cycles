@@ -39,7 +39,7 @@ extension Matrix where Element == Int {
         let list = Matrix<Int>(adjacencyMatrix.reservedLength)
         
         for i in 0 ..< adjacencyMatrix.reservedLength {
-            var v = Array<Int>()
+            var v = [Int]()
             for j in 0 ..< adjacencyMatrix[i].reservedLength {
                 if let isAdjacent = adjacencyMatrix[i]?[j], isAdjacent {
                     v.append(j)

@@ -77,7 +77,7 @@ class StrongConnectedComponents {
     private var visited: Vector<Bool>!
     
     /** Helpattribute for finding scc's */
-    private var stack: Array<Int>!
+    private var stack: [Int]!
     
     /** Helpattribute for finding scc's */
     private var lowlink: Vector<Int>!
@@ -89,7 +89,7 @@ class StrongConnectedComponents {
     private var strongConnectedComponentsCounter = 0;
     
     /** Helpattribute for finding scc's */
-    private var currentStrongConnectedComponents: Array<Array<Int>>!
+    private var currentStrongConnectedComponents: [[Int]]!
     
     /**
      * Constructor.
@@ -116,8 +116,8 @@ class StrongConnectedComponents {
         lowlink = Vector<Int>(self.adjacencyListOriginal.reservedLength)
         number = Vector<Int>(self.adjacencyListOriginal.reservedLength)
         visited = Vector<Bool>(self.adjacencyListOriginal.reservedLength)
-        stack = Array<Int>()
-        currentStrongConnectedComponents = Array<Array<Int>>()
+        stack = [Int]()
+        currentStrongConnectedComponents = [[Int]]()
 
         makeAdjacencyListSubgraph(node: node);
         
@@ -153,7 +153,7 @@ class StrongConnectedComponents {
         adjacencyList = AdjacencyList(adjacencyListOriginal.reservedLength, 0)
         
         for i in node ..< adjacencyList.reservedLength {
-            var successors = Array<Int>()
+            var successors = [Int]()
             for j in 0 ..< self.adjacencyListOriginal[i].reservedLength {
                 guard let original = adjacencyListOriginal[i]?[j] else { continue }
                 if original >= node {
@@ -176,9 +176,9 @@ class StrongConnectedComponents {
      *
      * @return Vector::Integer of the strongConnectedComponents containing the lowest nodenumber
      */
-    private func getLowestIdComponent() -> Array<Int>? {
+    private func getLowestIdComponent() -> [Int]? {
         var min = adjacencyList.reservedLength;
-        var currScc: Array<Int>?
+        var currScc: [Int]?
         
         for i in 0 ..< currentStrongConnectedComponents.count {
             let strongConnectedComponents = currentStrongConnectedComponents[i]
@@ -199,7 +199,7 @@ class StrongConnectedComponents {
      * strong connected component with least vertex in the currently viewed
      * subgraph
      */
-    private func getAdjList(nodes: Array<Int>?) -> AdjacencyList? {
+    private func getAdjList(nodes: [Int]?) -> AdjacencyList? {
         guard let nodes = nodes else { return nil }
         let lowestIdAdjacencyList = AdjacencyList(adjacencyList.reservedLength)
         for i in 0 ..< lowestIdAdjacencyList.reservedLength {
@@ -246,7 +246,7 @@ class StrongConnectedComponents {
         // found strongConnectedComponents
         if (lowlink[root] == number[root]) && (stack.count > 0) {
             var next = -1;
-            var strongConnectedComponents = Array<Int>()
+            var strongConnectedComponents = [Int]()
 
             repeat {
                 guard let popped = stack.popLast() else { break }
