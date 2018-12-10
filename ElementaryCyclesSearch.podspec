@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ElementaryCyclesSearch'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Elementary Circuits of a Directed Graph'
   s.description      = <<-DESC
 The implementation is pretty much generic, all it needs is a adjacency-matrix of your graph and the objects of your nodes. Then you get back the sets of node-objects which build a cycle.
