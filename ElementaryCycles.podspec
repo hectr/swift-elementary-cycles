@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ElementaryCycles'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Find all elementary cycles in a directed graph'
   s.description      = <<-DESC
 Swift port of an algorythm by Donald B. Johnson to find all the cycles in a directed graph.
@@ -14,5 +14,5 @@ Swift port of an algorythm by Donald B. Johnson to find all the cycles in a dire
   s.source           = { :git => 'https://github.com/hectr/swift-elementary-cycles.git', :tag => s.version.to_s }
   s.source_files     = 'Sources/ElementaryCycles/**/*'
   s.dependency       'ElementaryCyclesSearch'
-  s.swift_version    = '4.2'
+  s.swift_version    = '5.0'
 end

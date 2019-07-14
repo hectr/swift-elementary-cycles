@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ElementaryCyclesSearch'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Elementary Circuits of a Directed Graph'
   s.description      = <<-DESC
 The implementation is pretty much generic, all it needs is a adjacency-matrix of your graph and the objects of your nodes. Then you get back the sets of node-objects which build a cycle.
@@ -13,5 +13,5 @@ The implementation is pretty much generic, all it needs is a adjacency-matrix of
   s.osx.deployment_target = '10.13'
   s.source           = { :git => 'https://github.com/hectr/swift-elementary-cycles.git', :tag => s.version.to_s }
   s.source_files     = 'Sources/ElementaryCyclesSearch/**/*'
-  s.swift_version    = '4.2'
+  s.swift_version    = '5.0'
 end
