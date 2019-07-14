@@ -16,9 +16,9 @@
 
 import Swift
 
-public typealias AdjacencyMatrix = Matrix<Bool>
+public typealias AdjacencyMatrix = Matrix2D<Bool>
 
-extension Matrix where Element == Bool {
+extension Matrix2D where Element == Bool {
     public convenience init(_ reservedRows: Int, _ reservedColumns: Int = 0, builder: (AdjacencyMatrix) -> Void) {
         self.init(reservedRows, reservedColumns)
         builder(self)

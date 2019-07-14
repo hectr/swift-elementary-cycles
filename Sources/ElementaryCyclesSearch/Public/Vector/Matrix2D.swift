@@ -13,7 +13,7 @@
 
 import Swift
 
-public final class Matrix<Element> {
+public final class Matrix2D<Element> {
     private var vector: Vector<Vector<Element>>
     
     public subscript(_ row: Int) -> Vector<Element>! {
@@ -24,14 +24,14 @@ public final class Matrix<Element> {
             vector[row] = newValue
         }
     }
-
+    
     public init(_ reservedRows: Int, _ reservedColumns: Int = 0) {
         self.vector = Vector<Vector<Element>>(reservedRows)
         for i in 0 ..< reservedLength {
             vector[i] = Vector<Element>(reservedColumns)
         }
     }
-
+    
     public convenience init(rows: [[Element]]) {
         var reservedColumns = 0
         for row in rows {
@@ -42,26 +42,26 @@ public final class Matrix<Element> {
             self[offset] = Vector(array: row, reservedLength: reservedColumns)
         }
     }
-
+    
     public var reservedLength: Int {
         return vector.reservedLength
     }
 }
 
-extension Matrix: CustomDebugStringConvertible {
+extension Matrix2D: CustomDebugStringConvertible {
     public var debugDescription: String {
         return vector.debugDescription
     }
 }
 
-extension Matrix: CustomStringConvertible {
+extension Matrix2D: CustomStringConvertible {
     public var description: String {
         return vector.description
     }
 }
 
-extension Matrix: Equatable where Element: Equatable {
-    public static func == (lhs: Matrix<Element>, rhs: Matrix<Element>) -> Bool {
+extension Matrix2D: Equatable where Element: Equatable {
+    public static func == (lhs: Matrix2D<Element>, rhs: Matrix2D<Element>) -> Bool {
         guard lhs.reservedLength == rhs.reservedLength else { return false }
         for index in 0 ..< lhs.reservedLength {
             guard lhs[index] == rhs[index] else { return false }

@@ -14,7 +14,7 @@
 import Swift
 import ElementaryCyclesSearch
 
-extension Matrix where Element == Bool {
+extension Matrix2D where Element == Bool {
     enum Error: Swift.Error {
         case indexNotFound(node: AnyHashable, nodes: [AnyHashable])
     }

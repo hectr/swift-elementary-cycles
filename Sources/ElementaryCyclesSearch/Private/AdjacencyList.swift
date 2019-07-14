@@ -16,4 +16,4 @@
 
 import Swift
 
-typealias AdjacencyList = Matrix<Int>
+typealias AdjacencyList = Matrix2D<Int>

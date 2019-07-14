@@ -13,15 +13,15 @@
 
 import Swift
 
-public struct MatrixIterator<Element>: IteratorProtocol {
-    private let matrix: Matrix<Element>
+public struct Matrix2DIterator<Element>: IteratorProtocol {
+    private let matrix: Matrix2D<Element>
     private var currentIndex = -1
     private var currentIterator: VectorIterator<Element>?
-
-    fileprivate init(matrix: Matrix<Element>) {
+    
+    fileprivate init(matrix: Matrix2D<Element>) {
         self.matrix = matrix
     }
-
+    
     mutating public func next() -> Element? {
         if let element = currentIterator?.next() {
             return element
@@ -34,8 +34,8 @@ public struct MatrixIterator<Element>: IteratorProtocol {
     }
 }
 
-extension Matrix: Sequence {
-    public func makeIterator() -> MatrixIterator<Element> {
-        return MatrixIterator(matrix: self)
+extension Matrix2D: Sequence {
+    public func makeIterator() -> Matrix2DIterator<Element> {
+        return Matrix2DIterator(matrix: self)
     }
 }

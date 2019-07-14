@@ -54,7 +54,7 @@ public class ElementaryCyclesSearch<Node> {
     private var blocked: Vector<Bool>
     
     /** B-Lists, used by the algorithm of Johnson */
-    private var B: Matrix<Int>
+    private var B: Matrix2D<Int>
     
     /** Stack for nodes, used by the algorithm of Johnson */
     private var stack: [Int]
@@ -88,7 +88,7 @@ public class ElementaryCyclesSearch<Node> {
         self.adjacencyList = AdjacencyList.getAdjacencyList(adjacencyMatrix: adjacencyMatrix)
         cycles = [[Node]]()
         blocked = Vector<Bool>(adjacencyList.reservedLength)
-        B = Matrix<Int>(adjacencyList.reservedLength)
+        B = Matrix2D<Int>(adjacencyList.reservedLength)
         stack = [Int]()
     }
     

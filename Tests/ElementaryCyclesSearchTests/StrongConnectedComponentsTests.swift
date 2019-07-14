@@ -7,7 +7,7 @@ final class StrongConnectedComponentsTests: XCTestCase {
 
 
     func test1() {
-        let adjMatrix = Matrix(10, 10) { matrix in
+        let adjMatrix = Matrix2D(10, 10) { matrix in
             matrix[0][1] = true
             matrix[1][2] = true
             matrix[2][0] = true; matrix[2][6] = true
@@ -20,7 +20,7 @@ final class StrongConnectedComponentsTests: XCTestCase {
             matrix[6][1] = true
         }
 
-        let adjacencyList: Matrix<Int> = AdjacencyList.getAdjacencyList(adjacencyMatrix: adjMatrix)
+        let adjacencyList: Matrix2D<Int> = AdjacencyList.getAdjacencyList(adjacencyMatrix: adjMatrix)
         let sccs = StrongConnectedComponents(adjacencyList: adjacencyList)
 
         var description = ""
@@ -91,7 +91,7 @@ i: 9
     }
 
     func test2() {
-        let adjMatrix: AdjacencyMatrix = Matrix(10, 10) { matrix in
+        let adjMatrix: AdjacencyMatrix = Matrix2D(10, 10) { matrix in
             matrix[0][1] = true
             matrix[1][2] = true
             matrix[2][0] = true
@@ -106,7 +106,7 @@ i: 9
             matrix[9][6] = true
         }
 
-        let adjacencyList: Matrix<Int> = AdjacencyList.getAdjacencyList(adjacencyMatrix: adjMatrix)
+        let adjacencyList: Matrix2D<Int> = AdjacencyList.getAdjacencyList(adjacencyMatrix: adjMatrix)
         let sccs = StrongConnectedComponents(adjacencyList: adjacencyList)
         
         var description = ""

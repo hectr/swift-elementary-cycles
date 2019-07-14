@@ -16,7 +16,7 @@ final class AdjacencyListTests: XCTestCase {
         }
     }
     
-    var sut: ((AdjacencyMatrix) -> Matrix<Int>)!
+    var sut: ((AdjacencyMatrix) -> Matrix2D<Int>)!
     
     override func setUp() {
         super.setUp()

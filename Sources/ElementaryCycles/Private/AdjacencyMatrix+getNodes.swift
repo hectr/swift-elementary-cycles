@@ -14,7 +14,7 @@
 import Swift
 import ElementaryCyclesSearch
 
-extension Matrix where Element == Bool {
+extension Matrix2D where Element == Bool {
     static func getNodes<Node: Hashable>(graph: [Node: [Node]], sort: ((Node, Node) -> Bool)?) -> [Node] {
         var nodes = [Node]()
         for (node, adjacentNodes) in graph {

@@ -22,9 +22,9 @@ final class AdjacencyMatrixTests: XCTestCase {
 
     func testConvenienceInit() {
         let rows = [["a"],[],["b", "c"]]
-        let matrix = Matrix<String>(rows: rows)
-        let expectedMatrix: Matrix<String> = {
-            let matrix = Matrix<String>(3, 2)
+        let matrix = Matrix2D<String>(rows: rows)
+        let expectedMatrix: Matrix2D<String> = {
+            let matrix = Matrix2D<String>(3, 2)
             matrix[0][0] = "a"
             matrix[2][0] = "b"
             matrix[2][1] = "c"
@@ -34,7 +34,7 @@ final class AdjacencyMatrixTests: XCTestCase {
     }
 
     func testSequence() {
-        let matrix = Matrix<Int>(4, 4)
+        let matrix = Matrix2D<Int>(4, 4)
         matrix[0][1] = 1
         matrix[1][2] = 2
         matrix[3][0] = 3

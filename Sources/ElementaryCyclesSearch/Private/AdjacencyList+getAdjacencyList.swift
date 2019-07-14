@@ -24,7 +24,7 @@ import Swift
  * @version 1.0, 26.08.2006
  *
  */
-extension Matrix where Element == Int {
+extension Matrix2D where Element == Int {
     /**
      * Calculates a adjacency-list for a given array of an adjacency-matrix.
      *
@@ -35,8 +35,8 @@ extension Matrix where Element == Int {
      * adjacency, the second dimension represents the indicies of those nodes,
      * that are direct successornodes of the node.
      */
-    static func getAdjacencyList(adjacencyMatrix: AdjacencyMatrix) -> Matrix<Int> {
-        let list = Matrix<Int>(adjacencyMatrix.reservedLength)
+    static func getAdjacencyList(adjacencyMatrix: AdjacencyMatrix) -> Matrix2D<Int> {
+        let list = Matrix2D<Int>(adjacencyMatrix.reservedLength)
         
         for i in 0 ..< adjacencyMatrix.reservedLength {
             var v = [Int]()

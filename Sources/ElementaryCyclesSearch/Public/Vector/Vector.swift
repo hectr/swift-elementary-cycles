@@ -77,12 +77,12 @@ public final class Vector<Element> {
 }
 
 extension Vector where Element: Equatable {
-    func contains(_ element: Element) -> Bool{
+    public func contains(_ element: Element) -> Bool {
         return array.contains(element)
     }
     
     @discardableResult
-    func remove(element: Element) -> Bool {
+    public func remove(element: Element) -> Bool {
         if let index = array.firstIndex(of: element) {
             array.remove(at: -index.distance(to: 0))
             return true
