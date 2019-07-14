@@ -24,7 +24,7 @@ extension Matrix where Element == Bool {
         for (offset, node) in nodes.enumerated() {
             if let adjacentNodes = adjacencyDictionary[node] {
                 for adjacentNode in adjacentNodes {
-                    guard let adjacentIndex = nodes.index(of: adjacentNode) else {
+                    guard let adjacentIndex = nodes.firstIndex(of: adjacentNode) else {
                         throw Error.indexNotFound(node: adjacentNode, nodes: nodes)
                     }
                     matrix[offset][adjacentIndex] = true

@@ -31,10 +31,10 @@ final class AdjacencyMatrixShould: XCTestCase {
                      "IT": ["FR"]]
         let nodes = AdjacencyMatrix.getNodes(graph: graph, sort: nil)
         let adjacencyMatrix = try! AdjacencyMatrix.getAdjacencyMatrix(nodes: nodes, adjacencyDictionary: graph)
-        let es = nodes.index(of: "ES")!
-        let pt = nodes.index(of: "PT")!
-        let fr = nodes.index(of: "FR")!
-        let it = nodes.index(of: "IT")!
+        let es = nodes.firstIndex(of: "ES")!
+        let pt = nodes.firstIndex(of: "PT")!
+        let fr = nodes.firstIndex(of: "FR")!
+        let it = nodes.firstIndex(of: "IT")!
         XCTAssertTrue(adjacencyMatrix[es][pt] ?? adjacencyMatrix[pt][es] ?? false)
         XCTAssertTrue(adjacencyMatrix[es][fr] ?? adjacencyMatrix[fr][es] ?? false)
         XCTAssertTrue(adjacencyMatrix[fr][it] ?? adjacencyMatrix[it][fr] ?? false)

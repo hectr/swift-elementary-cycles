@@ -83,7 +83,7 @@ extension Vector where Element: Equatable {
     
     @discardableResult
     func remove(element: Element) -> Bool {
-        if let index = array.index(of: element) {
+        if let index = array.firstIndex(of: element) {
             array.remove(at: -index.distance(to: 0))
             return true
         }

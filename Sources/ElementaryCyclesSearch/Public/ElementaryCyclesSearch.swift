@@ -168,7 +168,7 @@ public class ElementaryCyclesSearch<Node> {
             }
         }
 
-        if let index = stack.index(of: v) {
+        if let index = stack.firstIndex(of: v) {
             stack.remove(at: index)
         }
         return f
