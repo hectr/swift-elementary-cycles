@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ElementaryCycles'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'Find all elementary cycles in a directed graph'
   s.description      = <<-DESC
 Swift port of an algorythm by Donald B. Johnson to find all the cycles in a directed graph.
