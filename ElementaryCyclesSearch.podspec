@@ -13,5 +13,6 @@ The implementation is pretty much generic, all it needs is a adjacency-matrix of
   s.osx.deployment_target = '10.13'
   s.source           = { :git => 'https://github.com/hectr/swift-elementary-cycles.git', :tag => s.version.to_s }
   s.source_files     = 'Sources/ElementaryCyclesSearch/**/*'
+  s.dependency       'Idioms'
   s.swift_version    = '5.0'
 end

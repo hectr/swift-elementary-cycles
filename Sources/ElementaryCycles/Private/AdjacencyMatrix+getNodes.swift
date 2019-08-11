@@ -12,6 +12,7 @@
  */
 
 import Swift
+import Idioms
 import ElementaryCyclesSearch
 
 extension Matrix2D where Element == Bool {

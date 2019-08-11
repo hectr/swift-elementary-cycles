@@ -16,6 +16,7 @@ let package = Package(
             targets: ["ElementaryCyclesSearchExample"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/hectr/swift-idioms.git", from: "1.4.0"),
     ],
     targets: [
         .target(
@@ -23,7 +24,7 @@ let package = Package(
             dependencies: ["ElementaryCyclesSearch"]),
         .target(
             name: "ElementaryCyclesSearch",
-            dependencies: []),
+            dependencies: ["Idioms"]),
         .target(
             name: "ElementaryCycles",
             dependencies: ["ElementaryCyclesSearch"]),

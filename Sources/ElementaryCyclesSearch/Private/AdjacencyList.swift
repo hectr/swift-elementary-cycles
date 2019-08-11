@@ -15,5 +15,6 @@
  */
 
 import Swift
+import Idioms
 
 typealias AdjacencyList = Matrix2D<Int>

@@ -15,6 +15,7 @@
  */
 
 import Swift
+import Idioms
 
 /**
  * Searchs all elementary cycles in a given directed graph. The implementation

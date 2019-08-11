@@ -1,4 +1,5 @@
 import XCTest
+import Idioms
 @testable import ElementaryCyclesSearch
 
 final class AdjacencyListTests: XCTestCase {

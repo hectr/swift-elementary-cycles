@@ -12,6 +12,7 @@
  */
 
 import Swift
+import Idioms
 import ElementaryCyclesSearch
 
 public struct ElementaryCycles {

@@ -15,6 +15,7 @@
  */
 
 import Swift
+import Idioms
 
 /**
  * This is a helpclass for the search of all elementary cycles in a graph

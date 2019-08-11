@@ -15,6 +15,7 @@
  */
 
 import Swift
+import Idioms
 
 /**
  * Calculates the adjacency-list for a given adjacency-matrix.
